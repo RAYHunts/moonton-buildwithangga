@@ -21,13 +21,18 @@ Route::middleware(['role:admin'])->group(function () {
 Route::middleware(['role:user'])->group(function () {
 });
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+Route::redirect('/', '/slicing/login');
+
+Route::prefix('slicing')->name('slicing.')->group(function () {
+    Route::get('/', function () {
+        return Inertia::render('Slicing/Index');
+    });
+    Route::get('/login', function () {
+        return Inertia::render('Slicing/Login');
+    })->name('login');
+    Route::get('/register', function () {
+        return Inertia::render('Slicing/Register');
+    })->name('register');
 });
 
 Route::get('/dashboard', function () {
