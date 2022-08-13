@@ -1,0 +1,19 @@
+    .side-link{
+        @apply flex items-center font-normal text-black text-sm w-full mb-5 gap-3 transition-all;
+    }
+
+    .side-link svg{
+        @apply text-[#B7B7B7];
+    }
+    .side-link.active{
+        @apply font-semibold border-r-[3px] border-alerange;
+    }
+
+    .side-link.active svg{
+        @apply text-alerange;
+    }
+
+    input.top-search{
+        @apply rounded-full border border-gray-2 placeholder:text-gray-1 text-base text-gray-1 px-5 py-[11px]
+        w-full max-w-[570px] focus:outline-none focus:ring-2 transition-all bg-no-repeat bg-[center_right_20px];
+    }

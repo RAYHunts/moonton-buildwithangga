@@ -21,13 +21,27 @@ Route::middleware(['role:admin'])->group(function () {
 Route::middleware(['role:user'])->group(function () {
 });
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+Route::redirect('/', '/slicing/login');
+
+Route::prefix('slicing')->name('slicing.')->group(function () {
+    Route::get('/', function () {
+        return Inertia::render('Slicing/Index');
+    });
+    Route::get('/login', function () {
+        return Inertia::render('Slicing/Login');
+    })->name('login');
+    Route::get('/register', function () {
+        return Inertia::render('Slicing/Register');
+    })->name('register');
+    Route::get('/dashboard', function () {
+        return Inertia::render('Slicing/Dashboard');
+    })->name('dashboard');
+    Route::get('/pricing', function () {
+        return Inertia::render('Slicing/Pricing');
+    })->name('pricing');
+    Route::get('/movie/{slug}', function () {
+        return Inertia::render('Slicing/Movie/Show');
+    })->name('movie.show');
 });
 
 Route::get('/dashboard', function () {
