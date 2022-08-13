@@ -36,6 +36,9 @@ Route::prefix('slicing')->name('slicing.')->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Slicing/Dashboard');
     })->name('dashboard');
+    Route::get('/pricing', function () {
+        return Inertia::render('Slicing/Pricing');
+    })->name('pricing');
 });
 
 Route::get('/dashboard', function () {
