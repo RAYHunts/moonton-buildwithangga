@@ -8,7 +8,7 @@ export default function Show() {
             <section className="mx-auto h-screen w-screen relative watching-page font-poppins bg-form-bg" id="stream">
                 <div className="pt-[100px] h-[850px]"> 
                     <ReactPlayer
-                        url="https://d33kv075lir7n3.cloudfront.net/Details+Screen+Part+Final.mp4"
+                        url={'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}
                         controls
                         width='100%'
                         height='100%'
