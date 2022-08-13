@@ -33,6 +33,9 @@ Route::prefix('slicing')->name('slicing.')->group(function () {
     Route::get('/register', function () {
         return Inertia::render('Slicing/Register');
     })->name('register');
+    Route::get('/dashboard', function () {
+        return Inertia::render('Slicing/Dashboard');
+    })->name('dashboard');
 });
 
 Route::get('/dashboard', function () {

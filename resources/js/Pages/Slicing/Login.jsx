@@ -43,7 +43,7 @@ export default function Login() {
                                 </div>
                             </div>
                             <div className="grid space-y-[14px] mt-[30px]">
-                                <Link href={route('slicing.register')}>
+                                <Link href={route('slicing.dashboard')}>
                                     <Button type="button" variant="primary">
                                         <span className="text-base font-semibold">
                                             Start Watching
