@@ -24,6 +24,7 @@
     "dependencies": {
         "flickity": "^2.3.0",
         "prop-types": "^15.8.1",
-        "react-flickity-component": "^3.6.3"
+        "react-flickity-component": "^3.6.3",
+        "react-player": "^2.10.1"
     }
 }

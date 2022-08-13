@@ -1,4 +1,5 @@
 import propTypes from 'prop-types';
+
 MovieCard.propTypes = {
     slug: propTypes.string.isRequired,
     thumbnail: propTypes.string.isRequired,
@@ -13,7 +14,7 @@ export default function MovieCard({
 }) {
     return (
         <>
-            <div className="relative group overflow-hidden mr-[30px]">
+            <div className="absolute group overflow-hidden mr-[30px]">
                 <img src={thumbnail} className="object-cover rounded-[30px] h-[340px] w-[250px]" alt=""/>
                 <div
                     className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black rounded-bl-[28px] rounded-br-[28px]">
@@ -26,7 +27,7 @@ export default function MovieCard({
                     -translate-x-1/2 z-20 transition ease-in-out duration-500">
                     <img src="/assets/icons/ic_play.svg" className="" width="50" alt=""/>
                 </div>
-                <a href={slug} className="inset-0 absolute z-50"></a>
+                <a href={route('slicing.movie.show', slug)} className="inset-0 absolute z-50"></a>
             </div>
         </>
     )

@@ -39,6 +39,9 @@ Route::prefix('slicing')->name('slicing.')->group(function () {
     Route::get('/pricing', function () {
         return Inertia::render('Slicing/Pricing');
     })->name('pricing');
+    Route::get('/movie/{slug}', function () {
+        return Inertia::render('Slicing/Movie/Show');
+    })->name('movie.show');
 });
 
 Route::get('/dashboard', function () {
