@@ -46,17 +46,17 @@ class User extends Authenticatable
         return $this->hasOne(UserSubscription::class)->wherePaymentStatus('paid')->latest();
     }
 
-    public function subscribtionStatus()
+    public function getSubscriptionStatusAttribute()
     {   
         if($this->userSubscription) {
             if(now()->lessThanOrEqualTo($this->userSubscription->expired_at)) {
                 return [
-                    'name' => $this->userSubscription->subscribtionPlan->name,
+                    'name' => $this->userSubscription->subscriptionPlan->name,
                     'remaining_days' => now()->diffInDays($this->userSubscription->expired_at),
                     'total_days' => $this->userSubscription->updated_at->diffInDays($this->userSubscription->expired_at)
                 ];
-                }
             }
+        }
         return false;
     }
 

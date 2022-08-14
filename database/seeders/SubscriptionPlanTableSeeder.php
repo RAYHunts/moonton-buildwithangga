@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\SubscribtionPlan;
+use App\Models\SubscriptionPlan;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SubscribtionPlanTableSeeder extends Seeder
+class SubscriptionPlanTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -37,7 +37,7 @@ class SubscribtionPlanTableSeeder extends Seeder
         ];
 
         foreach ($subcriptionPlan as $key => $value) {
-            SubscribtionPlan::create($value);
+            SubscriptionPlan::create($value);
         }
     }
 }

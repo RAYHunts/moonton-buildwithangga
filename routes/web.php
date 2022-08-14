@@ -26,9 +26,13 @@ Route::middleware(['role:user'])->group(function () {
 
 Route::middleware(['auth', 'role:user'])->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
-    Route::get('/movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
-    Route::get('/pricing', [SubscriptionPlanController::class, 'index'])->name('pricing');
-    Route::post('/subscribe', [SubscriptionPlanController::class, 'subscribe'])->name('subscribe');
+    Route::middleware('plan:true')->group(function () {
+        Route::get('/movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
+    });
+    Route::middleware('plan:false')->group(function () {
+        Route::get('/pricing', [SubscriptionPlanController::class, 'index'])->name('pricing');
+        Route::post('/subscribe', [SubscriptionPlanController::class, 'subscribe'])->name('subscribe');
+    });
 });
 
 Route::redirect('/', '/login');
