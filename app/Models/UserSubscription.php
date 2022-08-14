@@ -14,9 +14,14 @@ class UserSubscription extends Model
     protected $fillable = [
         'user_id',
         'subscribtion_plan_id',
+        'price',
         'expired_at',
         'payment_status',
         'snapToken',
+    ];
+
+    protected $dates = [
+        'expired_at',
     ];
 
     public function user() : BelongsTo

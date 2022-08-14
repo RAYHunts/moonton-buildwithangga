@@ -28,7 +28,7 @@ export default function Button({
             type={type}
             className={`
                 rounded-2xl py-[13px] text-center w-full 
-                ${processing && 'opacity-25'} 
+                ${processing && 'opacity-25 cursor-wait'} 
                 btn-${variant}
                 ${className}
                 ` }

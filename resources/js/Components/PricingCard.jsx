@@ -57,11 +57,11 @@ export default function PricingCard({
                     ))}
                 </div>
                 {/* Bottom: CTA Button */}
-                <Link onClick={() => onSelectSubscription(id)}>
+                <div onClick={onSelectSubscription}>
                     <Button variant={isPremium ? 'primary' : 'white-outline'} >
                     <span className="text-base">{ isPremium ? 'Subscribe Now' : 'Start Basic' }</span>
                     </Button>
-                </Link>
+                </div>
                 </div>
         </>
     )

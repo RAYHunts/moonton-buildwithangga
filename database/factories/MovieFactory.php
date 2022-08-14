@@ -18,12 +18,11 @@ class MovieFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'slug'=> $this->faker->slug,
             'category' => $this->faker->word,
-            'video_url' => 'https://www.youtube.com/watch?v='.$this->faker->word,
+            'video_url' => 'https://youtu.be/NeadWq8vpJU',
             'thumbnail' => $this->faker->imageUrl(),
             'is_featured' => $this->faker->boolean,
-            'rating' => $this->faker->randomFloat(2, 0, 10),
+            'rating' => $this->faker->randomFloat(2, 0, 5),
         ];
     }
 }

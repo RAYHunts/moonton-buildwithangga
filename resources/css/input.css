@@ -3,7 +3,7 @@
 }
 
 .input-error {
-    @apply ring ring-red-600;
+    @apply focus:bg-form-bg bg-form-bg ring ring-red-600;
 }
 
 .input-primary-outline {
