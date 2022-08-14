@@ -67,5 +67,8 @@ class Kernel extends HttpKernel
 
         // spatie/laravel-permission
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+
+        // custom middlewares
+        'plan' => \App\Http\Middleware\SubsPlan::class,
     ];
 }

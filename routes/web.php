@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\MovieController;
+use App\Http\Controllers\User\SubscriptionPlanController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,7 +24,18 @@ Route::middleware(['role:admin'])->group(function () {
 Route::middleware(['role:user'])->group(function () {
 });
 
-Route::redirect('/', '/slicing/login');
+Route::middleware(['auth', 'role:user'])->group(function () {
+    Route::resource('dashboard', DashboardController::class)->only('index');
+    Route::middleware('plan:true')->group(function () {
+        Route::get('/movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
+    });
+    Route::middleware('plan:false')->group(function () {
+        Route::get('/pricing', [SubscriptionPlanController::class, 'index'])->name('pricing');
+        Route::post('/subscribe', [SubscriptionPlanController::class, 'subscribe'])->name('subscribe');
+    });
+});
+
+Route::redirect('/', '/login');
 
 Route::prefix('slicing')->name('slicing.')->group(function () {
     Route::get('/', function () {
@@ -36,16 +50,10 @@ Route::prefix('slicing')->name('slicing.')->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Slicing/Dashboard');
     })->name('dashboard');
-    Route::get('/pricing', function () {
-        return Inertia::render('Slicing/Pricing');
-    })->name('pricing');
     Route::get('/movie/{slug}', function () {
         return Inertia::render('Slicing/Movie/Show');
     })->name('movie.show');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

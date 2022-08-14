@@ -6,11 +6,11 @@ Input.propTypes = {
     id: PropTypes.string,
     type: PropTypes.oneOf(['text', 'password', 'email', 'number', 'tel', 'file']),
     name: PropTypes.string,
-    value: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     defaultValue: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
     className: PropTypes.string,
     placeholder: PropTypes.string,
-    varian: PropTypes.oneOf(['primary', 'secondary', 'error', 'primary-outline', 'secondary-outline', 'error-outline']),
+    variant: PropTypes.oneOf(['primary', 'secondary', 'error', 'primary-outline', 'secondary-outline', 'error-outline']),
     autoComplete: PropTypes.oneOf(['on', 'off']),
     required: PropTypes.bool,
     isFocused: PropTypes.bool,
@@ -26,12 +26,12 @@ export default function Input({
     variant = 'primary',
     value,
     defaultValue,
-    className,
+    className = '',
     autoComplete,
     required,
     placeholder,
     isFocused,
-    isError,
+    isError = false,
     handleChange,
 }) {
     const input = useRef();
@@ -50,7 +50,7 @@ export default function Input({
                 name={name}
                 value={value}
                 className={
-                    `rounded-2xl py-[13px] px-7 w-full  input-${variant} ${className} ${isError && 'input-error'}`
+                    `rounded-2xl py-[13px] px-7 w-full  input-${variant} ${className} ${isError ? 'input-error' : ''}`
                 }
                 ref={input}
                 autoComplete={autoComplete}
