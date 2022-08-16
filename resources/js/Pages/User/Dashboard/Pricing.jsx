@@ -7,9 +7,9 @@ import { Head } from "@inertiajs/inertia-react";
 export default function Pricing({auth, subscriptionPlans}) {
 
     const selectPlan = id => {
-        Inertia.post(route('subscribe'),{
+        Inertia.post(route('user.subscribe'),{
             plan: id
-        })
+        });
     }
 
 

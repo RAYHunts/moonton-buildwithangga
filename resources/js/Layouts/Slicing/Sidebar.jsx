@@ -2,7 +2,7 @@ import CurrentPlan from '@/Components/CurrentPlan';
 import { Link } from '@inertiajs/inertia-react';
 import '../../../css/sidebar.css'
 import MenuItem from './MenuItem';
-import { UserMenu, UserOther } from './MenuList';
+import { AdminMenu, UserMenu, UserOther } from './MenuList';
 export default function Sidebar({auth}) {
     return (
         <>
@@ -15,6 +15,18 @@ export default function Sidebar({auth}) {
                         <div>
                             <div className="text-gray-1 text-sm mb-4">Menu</div>
                             {UserMenu.map((item, index) => (
+                                <MenuItem 
+                                    key={index}
+                                    href={item.route} 
+                                    icon={item.icon}
+                                    name={item.name}
+                                    isActive={item.route && route().current(item.route)}
+                                />
+                            ))}
+                        </div>
+                        <div>
+                            <div className="text-gray-1 text-sm mb-4">Admin</div>
+                            {AdminMenu.map((item, index) => (
                                 <MenuItem 
                                     key={index}
                                     href={item.route} 

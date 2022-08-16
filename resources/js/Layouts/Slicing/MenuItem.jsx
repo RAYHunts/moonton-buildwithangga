@@ -4,7 +4,9 @@ export default function MenuItem({href, icon, name, isActive, method = 'get'}) {
         <Link 
             href={href && route(href)} 
             className={`side-link ${isActive && 'active'}`}
-            method={method}>
+            method={method}
+            as='button'
+            >
             {icon}
             {name}
         </Link>

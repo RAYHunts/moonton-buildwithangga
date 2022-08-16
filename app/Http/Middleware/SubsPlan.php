@@ -17,10 +17,10 @@ class SubsPlan
     public function handle(Request $request, Closure $next, $state)
     {   
         if(!auth()->user()->subscriptionStatus && $state == 'true') {
-            return redirect(route('pricing'));
+            return redirect(route('user.pricing'));
         }
         if(auth()->user()->subscriptionStatus && $state == 'false') {
-            return redirect()->route('dashboard.index');
+            return redirect()->route('user.dashboard.index');
         }
         return $next($request);
     }

@@ -21,10 +21,10 @@ export default function Topbar({name}) {
                                 data-target="#dropdown-button">
                                 <img src="/assets/images/avatar.png" className="rounded-full object-cover w-full" alt="" />
                             </div>
-                            <div className={`bg-white rounded-2xl text-black font-medium flex-col gap-1 absolute z-[999] right-0 top-[80px] min-w-[180px] overflow-hidden ${dropdownOpen ? 'flex' : 'hidden'}`}>
+                            <div className={`bg-white rounded-2xl text-black font-medium flex-col gap-1 absolute z-[999] right-0 top-[80px] min-w-[180px] text-left overflow-hidden ${dropdownOpen ? 'flex' : 'hidden'}`}>
                                 <a href="#!" className="transition-all hover:bg-sky-100 p-4">Dashboard</a>
                                 <a href="#!" className="transition-all hover:bg-sky-100 p-4">Settings</a>
-                                <Link href={route('logout')} method="post" className="transition-all hover:bg-sky-100 p-4">Sign Out</Link>
+                                <Link href={route('logout')} method="post" as="button" className="transition-all hover:bg-sky-100 p-4">Sign Out</Link>
                             </div>
                         </div>
                     </div>
