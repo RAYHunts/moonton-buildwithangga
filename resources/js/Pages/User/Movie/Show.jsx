@@ -16,7 +16,7 @@ export default function Show(props) {
                 </div>
             {/* Button back to dashboard */}
                 <div className="absolute top-5 left-5 z-20">
-                    <Link href={route('dashboard.index')}>
+                    <Link href={route('user.dashboard.index')}>
                         <img
                             src="/assets/icons/ic_arrow-left.svg"
                             className="transition-all btn-back w-[46px]"

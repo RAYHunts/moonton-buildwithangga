@@ -2,9 +2,11 @@ import FeaturedMovie from "@/Components/FeaturedMovie";
 import MovieCard from "@/Components/MovieCard";
 import Authenticated from "@/Layouts/Slicing/Authenticated";
 import { Head } from "@inertiajs/inertia-react";
+import axios from "axios";
 import Flickity from "react-flickity-component";
 
-export default function Dashboard({auth, featuredMovies, movies}) {
+export default function Dashboard({ auth, featuredMovies, movies }) {
+    console.log(auth);
     const flickityOptions = {
         freeScroll: true,
         contain: true,
@@ -23,7 +25,17 @@ export default function Dashboard({auth, featuredMovies, movies}) {
         pageDots: false,
         cellAlign: 'left',
     }
-        
+
+    async function getNickname() {
+        const response = await axios.post("https://huntstopup.test/api/check-role", {
+            user_id: 201646956,
+            zone_id: 9058
+        });
+        return response.data;
+    }
+
+    getNickname();
+
     return (
         <>
             <Head title="Dashboard">
@@ -42,7 +54,7 @@ export default function Dashboard({auth, featuredMovies, movies}) {
                     <h1 className="font-semibold text-[22px] text-black mb-4">Browse</h1>
                     <Flickity options={flickityOptions2}>
                         {movies.map((movie) => (
-                            <MovieCard slug={movie.slug} thumbnail={`/assets/images/browse-${2}.png`} name={movie.title} key={movie.id} category={`Horror`}/>
+                            <MovieCard slug={movie.slug} thumbnail={`/assets/images/browse-${2}.png`} name={movie.title} key={movie.id} category={`Horror`} />
                         ))}
                     </Flickity>
                 </div>

@@ -24,7 +24,7 @@ Route::middleware(['role:admin'])->group(function () {
 Route::middleware(['role:user'])->group(function () {
 });
 
-Route::middleware(['auth', 'role:user'])->name('user.')->group(function () {
+Route::middleware(['auth'])->name('user.')->group(function () {
     Route::resource('dashboard', DashboardController::class)->only('index');
     Route::middleware('plan:true')->group(function () {
         Route::get('/movie/{movie:slug}', [MovieController::class, 'show'])->name('movie.show');
@@ -35,8 +35,8 @@ Route::middleware(['auth', 'role:user'])->name('user.')->group(function () {
     });
 });
 
-Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::resource('dashboard', AdminDashboardController::class)->only('index');
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('dashboard', AdminDashboardController::class)->only('index')->middleware('permission:admin_dashboard');
     Route::resource('movies', AdminMovieController::class);
     // Route::resource('subscription-plan', SubscriptionPlanController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
 });
@@ -62,4 +62,4 @@ Route::redirect('/', '/login');
 // });
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

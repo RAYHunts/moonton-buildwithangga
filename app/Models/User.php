@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Collection;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -41,15 +42,15 @@ class User extends Authenticatable
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function userSubscription() : HasOne
+    public function userSubscription(): HasOne
     {
         return $this->hasOne(UserSubscription::class)->wherePaymentStatus('paid')->latest();
     }
 
     public function getSubscriptionStatusAttribute()
-    {   
-        if($this->userSubscription) {
-            if(now()->lessThanOrEqualTo($this->userSubscription->expired_at)) {
+    {
+        if ($this->userSubscription) {
+            if (now()->lessThanOrEqualTo($this->userSubscription->expired_at)) {
                 return [
                     'name' => $this->userSubscription->subscriptionPlan->name,
                     'remaining_days' => now()->diffInDays($this->userSubscription->expired_at),
@@ -58,6 +59,13 @@ class User extends Authenticatable
             }
         }
         return false;
+    }
+
+    public function getPermissionsAttribute(): Collection
+    {
+        $access = $this->getPermissionsViaRoles();
+
+        return $access->pluck('name');
     }
 
     /**

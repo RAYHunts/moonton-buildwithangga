@@ -1,50 +1,48 @@
-import CurrentPlan from '@/Components/CurrentPlan';
-import { Link } from '@inertiajs/inertia-react';
-import '../../../css/sidebar.css'
-import MenuItem from './MenuItem';
-import { AdminMenu, UserMenu, UserOther } from './MenuList';
-export default function Sidebar({auth}) {
+import CurrentPlan from "@/Components/CurrentPlan";
+import { Link } from "@inertiajs/inertia-react";
+import "../../../css/sidebar.css";
+import MenuItem from "./MenuItem";
+import { AdminMenu, UserMenu, UserOther } from "./MenuList";
+export default function Sidebar({ auth }) {
+    // const Menu = UserMenu;
+    const Menu = auth.user.roles[0].name !== "user" ? AdminMenu : UserMenu;
     return (
         <>
-            <aside className="fixed z-50 w-[300px] h-full bg-white">
-                <div className="flex flex-col p-[30px] pr-0 border-r border-gray-[#F1F1F1] overflow-y-auto h-full">
+            <aside className="fixed z-50 h-full w-[300px] bg-white">
+                <div className="border-gray-[#F1F1F1] flex h-full flex-col overflow-y-auto border-r p-[30px] pr-0">
                     <a href="/">
-                        <img src="/assets/images/moonton.svg" alt=""/>
+                        <img src="/assets/images/moonton.svg" alt="" />
                     </a>
-                    <div className="links flex flex-col mt-[60px] h-full gap-[50px]">
+                    <div className="links mt-[60px] flex h-full flex-col gap-[50px]">
                         <div>
-                            <div className="text-gray-1 text-sm mb-4">Menu</div>
-                            {UserMenu.map((item, index) => (
-                                <MenuItem 
+                            <div className="mb-4 text-sm text-gray-1">Menu</div>
+                            {Menu.map((item, index) => (
+                                <MenuItem
                                     key={index}
-                                    href={item.route} 
+                                    href={item.route}
                                     icon={item.icon}
                                     name={item.name}
-                                    isActive={item.route && route().current(item.route)}
+                                    isActive={
+                                        item.route &&
+                                        route().current(item.route)
+                                    }
                                 />
                             ))}
                         </div>
                         <div>
-                            <div className="text-gray-1 text-sm mb-4">Admin</div>
-                            {AdminMenu.map((item, index) => (
-                                <MenuItem 
-                                    key={index}
-                                    href={item.route} 
-                                    icon={item.icon}
-                                    name={item.name}
-                                    isActive={item.route && route().current(item.route)}
-                                />
-                            ))}
-                        </div>
-                        <div>
-                            <div className="text-gray-1 side-link mb-4">Others</div>
+                            <div className="side-link mb-4 text-gray-1">
+                                Others
+                            </div>
                             {UserOther.map((item, index) => (
                                 <MenuItem
                                     key={index}
                                     href={item.route}
                                     icon={item.icon}
                                     name={item.name}
-                                    isActive={item.route && route().current(item.route)}
+                                    isActive={
+                                        item.route &&
+                                        route().current(item.route)
+                                    }
                                     method={item.method}
                                 />
                             ))}
@@ -66,10 +64,9 @@ export default function Sidebar({auth}) {
                                 Your Profile
                             </a> */}
                         </div>
-                    { auth.subscription && (
-                        <CurrentPlan plan={auth.subscription} />
-                    ) }
-
+                        {auth.subscription && (
+                            <CurrentPlan plan={auth.subscription} />
+                        )}
                     </div>
                 </div>
             </aside>

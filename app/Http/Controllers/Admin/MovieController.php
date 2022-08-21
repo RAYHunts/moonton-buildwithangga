@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Movie;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -16,7 +17,7 @@ class MovieController extends Controller
     public function index()
     {
         return inertia('Admin/Movie/Index', [
-            'movies' => Movie::all(),
+            'movies' => new Collection(Movie::paginate(10)),
         ]);
     }
 

@@ -27,9 +27,16 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
+        $superAdmin = User::create([
+            'name' => 'Super Admin',
+            'email' => 'superadmin@moonton.test',
+            'password' => bcrypt('password'),
+        ]);
+
         $user->assignRole('user');
 
         $admin->assignRole('admin');
 
+        $superAdmin->assignRole('super-admin');
     }
 }
