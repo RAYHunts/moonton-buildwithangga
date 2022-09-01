@@ -6,7 +6,7 @@ import axios from "axios";
 import Flickity from "react-flickity-component";
 
 export default function Dashboard({ auth, featuredMovies, movies }) {
-    console.log(auth);
+    console.log(movies);
     const flickityOptions = {
         freeScroll: true,
         contain: true,
@@ -46,7 +46,7 @@ export default function Dashboard({ auth, featuredMovies, movies }) {
                     <h1 className="font-semibold text-[22px] text-black mb-4">Featured Movies</h1>
                     <Flickity className="gap-[30px]" options={flickityOptions}>
                         {featuredMovies.map((movie) => (
-                            <FeaturedMovie key={movie.id} slug={movie.slug} name={movie.title} thumbnail={`/assets/images/featured-${2}.png`} rating={movie.rating} category={movie.category} />
+                            <FeaturedMovie key={movie.id} slug={movie.slug} name={movie.title} thumbnail={movie.thumbnail} rating={movie.rating} category={movie.category} />
                         ))}
                     </Flickity>
                 </div>
@@ -54,7 +54,7 @@ export default function Dashboard({ auth, featuredMovies, movies }) {
                     <h1 className="font-semibold text-[22px] text-black mb-4">Browse</h1>
                     <Flickity options={flickityOptions2}>
                         {movies.map((movie) => (
-                            <MovieCard slug={movie.slug} thumbnail={`/assets/images/browse-${2}.png`} name={movie.title} key={movie.id} category={`Horror`} />
+                            <MovieCard slug={movie.slug} thumbnail={movie.thumbnail} name={movie.title} key={movie.id} category={movie.category} />
                         ))}
                     </Flickity>
                 </div>

@@ -2,10 +2,9 @@ import CurrentPlan from "@/Components/CurrentPlan";
 import { Link } from "@inertiajs/inertia-react";
 import "../../../css/sidebar.css";
 import MenuItem from "./MenuItem";
-import { AdminMenu, UserMenu, UserOther } from "./MenuList";
+import { AdminMenu, UserMenu, UserOther, SuperAdminMenu } from "./MenuList";
 export default function Sidebar({ auth }) {
-    // const Menu = UserMenu;
-    const Menu = auth.user.roles[0].name !== "user" ? AdminMenu : UserMenu;
+    const access = auth.access;
     return (
         <>
             <aside className="fixed z-50 h-full w-[300px] bg-white">
@@ -14,9 +13,45 @@ export default function Sidebar({ auth }) {
                         <img src="/assets/images/moonton.svg" alt="" />
                     </a>
                     <div className="links mt-[60px] flex h-full flex-col gap-[50px]">
+                        {access.includes("menu-super_admin_access") && (
+                            <div>
+                                <div className="mb-4 text-sm text-gray-1">Super Admin</div>
+                                {SuperAdminMenu.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        href={item.route}
+                                        icon={item.icon}
+                                        name={item.name}
+                                        isActive={
+                                            item.route &&
+                                            route().current(item.active ?? item.route)
+                                        }
+                                    />
+                                ))}
+                            </div>
+                        )}
+                    
+                        {access.includes("menu-admin_access") && (
+                            <div>
+                                <div className="mb-4 text-sm text-gray-1">Admin</div>
+                                {AdminMenu.map((item, index) => (
+                                    <MenuItem
+                                        key={index}
+                                        href={item.route}
+                                        icon={item.icon}
+                                        name={item.name}
+                                        isActive={
+                                            item.route &&
+                                            route().current(item.active ?? item.route)
+                                        }
+                                    />
+                                ))}
+                            </div>
+                        )}
+
                         <div>
                             <div className="mb-4 text-sm text-gray-1">Menu</div>
-                            {Menu.map((item, index) => (
+                            {UserMenu.map((item, index) => (
                                 <MenuItem
                                     key={index}
                                     href={item.route}

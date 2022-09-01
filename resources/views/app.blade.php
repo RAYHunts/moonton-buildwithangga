@@ -7,11 +7,15 @@
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
+        {{-- favicon --}}
+        <link rel="icon" href="/assets/images/favicon.svg">
         <!-- Fonts -->
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
         </style>
 
+        <!-- Fontawesome -->
+        <link href="https://cdn.jsdelivr.net/gh/hung1001/font-awesome-pro-v6@18657a9/css/all.min.css" rel="stylesheet" type="text/css" />
         <!-- Scripts -->
         @routes
         @viteReactRefresh

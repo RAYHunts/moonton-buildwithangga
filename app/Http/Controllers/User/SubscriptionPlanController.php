@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class SubscriptionPlanController extends Controller
 {
     public function index()
-    {   
+    {
         $subscriptionPlans = SubscriptionPlan::all();
         return inertia('User/Dashboard/Pricing', compact('subscriptionPlans'));
     }
@@ -18,7 +18,7 @@ class SubscriptionPlanController extends Controller
     // subscribe to a plan
 
     public function subscribe(Request $request)
-    {   
+    {
         $plan = SubscriptionPlan::find($request->plan);
         $data = [
             'user_id' => auth()->user()->id,
@@ -28,6 +28,6 @@ class SubscriptionPlanController extends Controller
             'payment_status' => 'paid',
         ];
         UserSubscription::create($data);
-        return redirect()->route('dashboard.index');
+        return redirect()->back()->with('success', 'You have successfully subscribed to the plan');
     }
 }

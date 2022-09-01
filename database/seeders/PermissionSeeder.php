@@ -20,8 +20,9 @@ class PermissionSeeder extends Seeder
             'profile_access',
             'profile_edit',
             'profile_delete',
-            'movie_access',
-            'user_dashboard',
+            'dashboard-user_access',
+            'menu-user_access',
+
         ];
 
         $adminPermissions = [
@@ -33,8 +34,10 @@ class PermissionSeeder extends Seeder
             'movie_create',
             'movie_update',
             'movie_delete',
-            'admin_dashboard',
-            'user_dashboard',
+            'dashboard-user_access',
+            'menu-user_access',
+            'dashboard-admin_access',
+            'menu-admin_access',
         ];
 
         $superAdminPermissions = [
@@ -54,9 +57,12 @@ class PermissionSeeder extends Seeder
             'permission_create',
             'permission_update',
             'permission_delete',
-            'admin_dashboard',
-            'user_dashboard',
-            'super-admin_dashboard',
+            'dashboard-user_access',
+            'menu-user_access',
+            'dashboard-admin_access',
+            'menu-admin_access',
+            'dashboard-super_admin_access',
+            'menu-super_admin_access',
             'profile_access',
             'profile_edit',
             'profile_delete',

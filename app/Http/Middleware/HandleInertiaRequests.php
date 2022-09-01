@@ -40,6 +40,7 @@ class HandleInertiaRequests extends Middleware
                 'subscription' => $request->user()?->subscriptionStatus,
                 'access' => $request->user()?->permissions,
             ],
+            'flashMessage' => $request->session()->get('flashMessage', null),
             'ziggy' => function () use ($request) {
                 return array_merge((new Ziggy)->toArray(), [
                     'location' => $request->url(),

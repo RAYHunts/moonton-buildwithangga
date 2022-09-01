@@ -6,22 +6,22 @@ Button.propTypes = {
     type: PropTypes.oneOf(['button', 'submit', 'reset']),
     className: PropTypes.string,
     variant: PropTypes.oneOf([
-        'primary', 
-        'warning', 
-        'danger', 
-        'light-outline', 
+        'primary',
+        'warning',
+        'danger',
+        'light-outline',
         'white-outline'
     ]),
     children: PropTypes.node,
     processing: PropTypes.bool,
 };
 
-export default function Button({ 
-    type = 'submit', 
-    className = '', 
+export default function Button({
+    type = 'submit',
+    className = '',
     variant = 'primary',
-    processing, 
-    children 
+    processing,
+    children
 }) {
     return (
         <button

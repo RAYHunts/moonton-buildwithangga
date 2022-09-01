@@ -27,5 +27,7 @@ module.exports = {
         }
     },
 
-    plugins: [require('@tailwindcss/forms')],
+    darkMode: 'class',
+
+    plugins: [require('@tailwindcss/forms'), require('tailwind-scrollbar'),],
 };

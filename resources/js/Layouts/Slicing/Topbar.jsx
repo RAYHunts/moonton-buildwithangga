@@ -43,9 +43,9 @@ export default function Topbar({ name }) {
                             >
                                 Dashboard
                             </Link>
-                            <a href="#!" className="p-4 transition-all hover:bg-sky-100">
+                            {/* <a href="#!" className="p-4 transition-all hover:bg-sky-100">
                                 Settings
-                            </a>
+                            </a> */}
                             <Link
                                 href={route("logout")}
                                 method="post"
