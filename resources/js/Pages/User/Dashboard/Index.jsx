@@ -24,17 +24,6 @@ export default function Dashboard({ auth, featuredMovies, movies }) {
         pageDots: false,
         cellAlign: 'left',
     }
-
-    async function getNickname() {
-        const response = await axios.post("https://huntstopup.test/api/check-role", {
-            user_id: 201646956,
-            zone_id: 9058
-        });
-        return response.data;
-    }
-
-    getNickname();
-
     return (
         <>
             <Head title="Dashboard">
