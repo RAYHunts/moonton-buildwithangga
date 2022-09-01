@@ -19,20 +19,7 @@ export default function Index({ auth, roles, flashMessage, permissions }) {
                 <div className="container mx-auto px-4 sm:px-8 w-full">
                     <div>
                         {flashMessage && (
-                            <FlashMessage type={flashMessage.type} message={flashMessage.message} >
-                                {flashMessage.more && (
-                                    <div className="px-4 py-2 ml-auto text-center cursor-pointer" onClick={() => { put(flashMessage.more.url) }}>
-                                        <span className="font-semibold capitalize text-blue-500 dark:text-blue-400">
-                                            {flashMessage.more.title}
-                                        </span>
-                                        <p
-                                            className="text-gray-600 dark:text-gray-200"
-                                        >
-                                            <i className={flashMessage.more.icon}></i>
-                                        </p>
-                                    </div>
-                                )}
-                            </FlashMessage>
+                            <FlashMessage type={flashMessage.type} message={flashMessage.message} />
                         )}
 
 
@@ -47,7 +34,7 @@ export default function Index({ auth, roles, flashMessage, permissions }) {
                                     Add Role
                                 </Button>
                             </Link>
-                           
+
                         </div>
                         <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                             <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">

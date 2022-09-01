@@ -6,7 +6,6 @@ import axios from "axios";
 import Flickity from "react-flickity-component";
 
 export default function Dashboard({ auth, featuredMovies, movies }) {
-    console.log(movies);
     const flickityOptions = {
         freeScroll: true,
         contain: true,

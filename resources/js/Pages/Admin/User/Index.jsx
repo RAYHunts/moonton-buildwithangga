@@ -5,7 +5,6 @@ import { Head, Link, useForm } from "@inertiajs/inertia-react";
 
 export default function Index({ auth, users, flashMessage }) {
     const { delete: destroy, put } = useForm();
-    console.log(users);
     function pageLabel(page) {
         return { __html: page };
     };
@@ -15,10 +14,10 @@ export default function Index({ auth, users, flashMessage }) {
             <Authenticated auth={auth}>
                 <div className="container mx-auto px-4 sm:px-8 w-full">
                     <div>
-                    {flashMessage && (
+                        {flashMessage && (
                             <FlashMessage type={flashMessage.type} message={flashMessage.message} >
                                 {flashMessage.more && (
-                                    <div className="px-4 py-2 ml-auto text-center cursor-pointer" onClick={() => {put(flashMessage.more.url)}}>
+                                    <div className="px-4 py-2 ml-auto text-center cursor-pointer" onClick={() => { put(flashMessage.more.url) }}>
                                         <span className="font-semibold capitalize text-blue-500 dark:text-blue-400">
                                             {flashMessage.more.title}
                                         </span>
@@ -70,7 +69,7 @@ export default function Index({ auth, users, flashMessage }) {
                                                 scope="col" colSpan={2}
                                                 className="px-5 py-3  text-gray-800  text-left text-base uppercase font-semibold"
                                             ></th>
-                                            
+
 
 
                                         </tr>
