@@ -1,5 +1,5 @@
 .input-primary {
-    @apply focus:bg-form-bg bg-form-bg focus:outline-alerange focus:outline-none;
+    @apply focus:bg-form-bg bg-form-bg focus:outline-alerange focus:outline-none hover:outline-alerange hover:outline-none;
 }
 
 .input-error {

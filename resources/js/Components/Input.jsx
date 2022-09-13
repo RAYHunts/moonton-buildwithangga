@@ -58,6 +58,7 @@ export default function Input({
             onChange={(e) => handleChange(e)}
             placeholder={placeholder}
             defaultValue={defaultValue}
+            max={name == 'rating' ? 5 : null}
 
         />
         // </div>
