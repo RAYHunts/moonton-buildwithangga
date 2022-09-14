@@ -474,10 +474,6 @@
     "file": "assets/app.7ddad80c.css",
     "src": "resources/js/app.css"
   },
-  "Authenticated.css": {
-    "file": "assets/Authenticated.5b123ff8.css",
-    "src": "Authenticated.css"
-  },
   "Button.css": {
     "file": "assets/Button.a0aae204.css",
     "src": "Button.css"
@@ -485,5 +481,9 @@
   "Input.css": {
     "file": "assets/Input.bed1d6f1.css",
     "src": "Input.css"
+  },
+  "Authenticated.css": {
+    "file": "assets/Authenticated.5b123ff8.css",
+    "src": "Authenticated.css"
   }
 }
