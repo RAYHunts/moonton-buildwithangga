@@ -12,6 +12,7 @@ deployment:
     - /bin/cp -R database $DEPLOYPATH
     - /bin/cp -R lang $DEPLOYPATH
     - /bin/cp -R vendor $DEPLOYPATH
+    - /bin/cp -R public $DEPLOYPATH
     - /bin/cp .env.example $DEPLOYPATH
     - /bin/cp .env $DEPLOYPATH
     - /bin/cp artisan $DEPLOYPATH
