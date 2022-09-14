@@ -1,0 +1,17 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/hunf8754/moonton/
+    - /bin/cp -R app $DEPLOYPATH
+    - /bin/cp -R bootstrap $DEPLOYPATH
+    - /bin/cp -R config $DEPLOYPATH
+    - /bin/cp -R resources $DEPLOYPATH
+    - /bin/cp -R routes $DEPLOYPATH
+    - /bin/cp -R storage $DEPLOYPATH
+    - /bin/cp -R tests $DEPLOYPATH
+    - /bin/cp -R database $DEPLOYPATH
+    - /bin/cp -R lang $DEPLOYPATH
+    - export DEPLOYPATH=/home/hunf8754/public_html/moonton/
+    - /bin/cp -R public/assets $DEPLOYPATH
+    - /bin/cp -R public/build $DEPLOYPATH
+    - /bin/cp -R public/images $DEPLOYPATH
