@@ -2,14 +2,12 @@ import FeaturedMovie from "@/Components/FeaturedMovie";
 import MovieCard from "@/Components/MovieCard";
 import Authenticated from "@/Layouts/Slicing/Authenticated";
 import { Head } from "@inertiajs/inertia-react";
-import axios from "axios";
 import Flickity from "react-flickity-component";
 
 export default function Dashboard({ auth, featuredMovies, movies }) {
     const flickityOptions = {
         freeScroll: true,
         contain: true,
-        // disable previous & next buttons and dots
         prevNextButtons: false,
         pageDots: false,
         autoPlay: 5000,
@@ -19,7 +17,6 @@ export default function Dashboard({ auth, featuredMovies, movies }) {
     const flickityOptions2 = {
         freeScroll: true,
         contain: true,
-        // disable previous & next buttons and dots
         prevNextButtons: false,
         pageDots: false,
         cellAlign: 'left',
