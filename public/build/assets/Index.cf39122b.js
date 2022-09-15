@@ -1,1 +1,0 @@
-import{A as e}from"./Authenticated.ebd7c5f1.js";import{j as r,F as s,a as t,H as n}from"./app.d6596146.js";function m({auth:a}){return r(s,{children:[t(n,{title:"Admin"}),t(e,{auth:a})]})}export{m as default};
