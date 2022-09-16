@@ -137,9 +137,9 @@ export default function Index({ auth, movies, flashMessage }) {
                                                     <p className="text-gray-900 whitespace-no-wrap">{movie.rating}</p>
                                                 </td>
                                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
-                                                    <span className={`relative inline-block px-3 py-1  leading-tight rounded-full ${movie.is_featured ? 'bg-alerange font-semibold' : 'bg-slate-400'}`}>
+                                                    <span className={`relative inline-block px-3 py-1  leading-tight rounded-full ${parseFloat(movie.is_featured) ? 'bg-alerange font-semibold' : 'bg-slate-400'}`}>
 
-                                                        {movie.is_featured ? "Featured" : "Not Featured"}
+                                                        {parseFloat(movie.is_featured) ? "Featured" : "Not Featured"}
 
                                                     </span>
                                                 </td>

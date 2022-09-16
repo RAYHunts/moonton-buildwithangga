@@ -138,8 +138,8 @@ export default function Edit({ auth, movie }) {
                                             <input
                                                 type="checkbox"
                                                 name="is_featured"
-                                                defaultValue={data.is_featured}
-                                                defaultChecked={data.is_featured}
+                                                defaultValue={parseFloat(data.is_featured)}
+                                                defaultChecked={parseFloat(data.is_featured)}
                                                 onChange={(e) =>
                                                     setData("is_featured", e.target.checked)
                                                 }

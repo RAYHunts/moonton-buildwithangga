@@ -48,6 +48,10 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     // Route::resource('subscription-plan', SubscriptionPlanController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
 });
 
+Route::get('/offline', function () {
+    return inertia('Offline/Index');
+});
+
 Route::redirect('/', '/login');
 
 // Route::prefix('slicing')->name('slicing.')->group(function () {
